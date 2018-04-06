@@ -23,7 +23,7 @@ arr：结果值，arr[0]全匹配结果，arr[1,2...]为表达式内()的子匹�
     while((arr = re.exec(src)) !=null){ </br>
         document.write(arr.index + "-" + re.lastIndex + ":" + arr + "<br/>"); </br>
         for(key in arr){ </br>
-            document.write(key + "=>" + arr[key] + "<br/>"); </br>
+            document.write(key + "=>" + arr[key] + "\<br\/>"); </br>
         } </br>
         document.write("<br/>"); </br>
     } </br>
