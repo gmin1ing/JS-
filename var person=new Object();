@@ -225,3 +225,51 @@ alert(allFives);
 var start=Date.now();
 doSomething;
 var stop=+Date.now(), result=stop-start;
+
+var date1=new Date(2007,0,1);
+var date2=new Date(2007,1,1);
+alert(date1<date2);
+alert(date1>date2);
+date1.toDateString();
+date1.toTimeString();
+date1.toLocaleDateString();
+date1.toLocaleTimeString();
+date1.toUTCString();
+
+========RegExp
+var re=null,i;
+for(i=0;i<10;i++){
+	re=/cat/g;
+	re.test("catastrophe");
+}
+
+for(i=0;i<10;i++){
+	re=new RegExp("cat","g");
+	re.test("catastrophe");
+}
+
+var text="cat, bat, sat, fat";
+var pattern1=/.at/;
+
+var matches=pattern1.exec(text);
+alert(matches.index);
+alert(matches[0]);
+alert(pattern1.lastIndex);
+
+matches=pattern1.exec(text);
+alert(matches.index);
+alert(matches[0]);
+alert(pattern1.lastIndex);
+
+var pattern2=/.at/g;
+var matches=pattern2.exec(text);
+alert(matches.index);
+alert(matches[0]);
+alert(pattern2.lastIndex);
+
+matches=pattern2.exec(text);
+alert(matches.index);
+alert(matches[0]);
+alert(pattern2.lastIndex);
+
+
