@@ -1,34 +1,33 @@
 # JS-知识点
-![image](https://github.com/gmin1ing/JS-/blob/pic/201709191131.png);</br>
-一、exec 方法
-用正则表达式模式在字符串中查找，并返回该查找结果的第一个值（数组），如果匹配失败，返回null。
-rgExp.exec(str)
-**参数 **
-rgExp
-必选项。包含正则表达式模式和可用标志的正则表达式对象。
-str
-必选项。要在其中执行查找的 String 对象或字符串文字。
-**返回数组包含： **
-input：整个被查找的字符串的值；
-index：匹配结果所在的位置（位）；
-arr：结果值，arr[0]全匹配结果，arr[1,2...]为表达式内()的子匹配，由左至右为1,2...。
-注意：在匹配后，rgExp 的 lastIndex 属性被设置为匹配文本的最后一个字符的下一个位置。lastIndex并不在返回对象的属性中，而是正则表达式对象的属性。
-例子1：不含子表达式的正则表达式exec方法循环应用
+![image](https://github.com/gmin1ing/JS-/blob/pic/201709191131.png)</br>
+一、exec 方法</br>
+用正则表达式模式在字符串中查找，并返回该查找结果的第一个值（数组），如果匹配失败，返回null。</br>
+rgExp.exec(str)</br>
+**参数 **</br>
+rgExp</br>
+必选项。包含正则表达式模式和可用标志的正则表达式对象。</br>
+str:必选项。要在其中执行查找的 String 对象或字符串文字。</br>
+**返回数组包含： **</br>
+input：整个被查找的字符串的值；</br>
+index：匹配结果所在的位置（位）；</br>
+arr：结果值，arr[0]全匹配结果，arr[1,2...]为表达式内()的子匹配，由左至右为1,2...。</br>
+注意：在匹配后，rgExp 的 lastIndex 属性被设置为匹配文本的最后一个字符的下一个位置。lastIndex并不在返回对象的属性中，而是正则表达式对象的属性。</br>
+例子1：不含子表达式的正则表达式exec方法循环应用</br>
 
-!function RegExpTest(){ 
-    var src="http://sumsung753.blog.163.com/blog/I love you!"; 
-    // 注意g将全文匹配，不加将永远只返回第一个匹配。 
-    var re = /\w+/g; 
-    var arr; 
-    // exec使arr返回匹配的第一个，while循环一次将使re在g作用寻找下一个匹配。 
-    while((arr = re.exec(src)) !=null){ 
-        document.write(arr.index + "-" + re.lastIndex + ":" + arr + "<br/>"); 
-        for(key in arr){ 
-            document.write(key + "=>" + arr[key] + "<br/>"); 
-        } 
-        document.write("<br/>"); 
-    } 
-}()
+!function RegExpTest(){ </br>
+    var src="http://sumsung753.blog.163.com/blog/I love you!"; </br>
+    // 注意g将全文匹配，不加将永远只返回第一个匹配。 </br>
+    var re = /\w+/g; </br>
+    var arr; </br>
+    // exec使arr返回匹配的第一个，while循环一次将使re在g作用寻找下一个匹配。 </br>
+    while((arr = re.exec(src)) !=null){ </br>
+        document.write(arr.index + "-" + re.lastIndex + ":" + arr + "<br/>"); </br>
+        for(key in arr){ </br>
+            document.write(key + "=>" + arr[key] + "<br/>"); </br>
+        } </br>
+        document.write("<br/>"); </br>
+    } </br>
+}()</br>
 
 输出结果：
 
