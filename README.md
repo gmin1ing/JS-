@@ -1,5 +1,5 @@
 # JS-知识点
-![image](https://github.com/gmin1ing/JS-/blob/pic/201709191131.png);
+![image](https://github.com/gmin1ing/JS-/blob/pic/201709191131.png);＜/br＞
 一、exec 方法
 用正则表达式模式在字符串中查找，并返回该查找结果的第一个值（数组），如果匹配失败，返回null。
 rgExp.exec(str)
