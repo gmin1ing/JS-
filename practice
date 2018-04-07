@@ -365,3 +365,41 @@ sayColor();//red
 sayColor.call(this);//red
 sayColor.call(window);//red
 sayColor.call(o);//blue
+
+========String
+var stringValue="hello ";
+var result=stringValue.concat("world");
+var result2=stringValue.concat("world","!");
+alert(result);
+alert(result2);
+alert(stringValue);
+
+var stringValue="Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+var positions=new Array();
+var pos=stringValue.indexOf("e");
+while(pos>-1){
+	positions.push(pos);
+	pos=stringValue.indexOf("e",pos+1);
+}
+alert(positions);
+
+========
+var text="cat, bat, sat, fat";
+result=text.replace(/(.at)/g,"word($1)");
+alert(result);
+
+function htmlEscape(text){
+	return text.replace(/[<>"&]/g,function(match,pos,originalText){
+		switch(match){
+			case "<":
+				return "&lt;";
+			case ">":
+				return "&gt;"
+			case "&":
+				return "&amp;";
+			case "\"":
+				return "&quot;";
+		}
+	});
+}
+alert(htmlEscape("<p class =\"greeting\">Hello world!</p>"));
