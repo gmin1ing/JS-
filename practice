@@ -403,3 +403,12 @@ function htmlEscape(text){
 	});
 }
 alert(htmlEscape("<p class =\"greeting\">Hello world!</p>"));
+
+=======单体内置对象
+var uri="http://www.wrox.com/illegal value.html#start"
+alert(encodeURI(uri));        //http://www.wrox.com/illegal%20value.html#start
+alert(encodeURIComponent(uri));     //http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.html%23start
+
+var uri="http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.html%23start";
+alert(decodeURI(uri));          //http%3A%2F%2Fwww.wrox.com%2Fillegal value.html%23start
+alert(decodeURIComponent(uri));        //http://www.wrox.com/illegal value.html#start
