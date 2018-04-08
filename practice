@@ -412,3 +412,62 @@ alert(encodeURIComponent(uri));     //http%3A%2F%2Fwww.wrox.com%2Fillegal%20valu
 var uri="http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.html%23start";
 alert(decodeURI(uri));          //http%3A%2F%2Fwww.wrox.com%2Fillegal value.html%23start
 alert(decodeURIComponent(uri));        //http://www.wrox.com/illegal value.html#start
+
+
+======eval
+eval("alert('hi')");
+
+var msg="hello world!";
+eval("alert(msg)");
+
+eval("function sayHi(){alert('hi');}");
+sayHi();
+
+eval("var msg='hello world!';");
+alert(msg);
+
+=======Math
+var values=[1,2,3,4,5,6,7,8];
+var max=Math.max.apply(Math,values);
+
+function selectionFrom(lowerValue,upperValue){
+	var choices=upperValue-lowerValue+1;
+	return Math.floor(Math.random()*choices+lowerValue);
+}
+var num=selectionFrom(2,10);
+alert(num);//[2,10]之间的整数
+var colors=["red","green","blue","yellow","blank","purple","brown"];
+var color=colors[selectionFrom(0,colors.length-1)];
+alert(color);
+
+======function
+var factorial=(function f(num){
+	if (num<=1){
+		return 1;
+	}else{
+		return num*f(num-1);
+	}
+})
+
+============闭包与变量
+function createFunctions(){
+	var result=new Array();
+	for(var i=0;i<10;i++){
+		result[i]=function(){
+			return i;
+		}
+	}
+	return result;
+}
+
+function createFunctions(){
+	var result=new Array();
+	for(var i=0;i<10;i++){
+		result[i]=function(num){
+			return function(){
+				return num;
+			}
+		}(i);
+	}
+	return result;
+}
