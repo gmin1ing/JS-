@@ -273,3 +273,39 @@ document.write(str.split(" ",3))</br>
 How,are,you,doing,today?</br>
 H,o,w, ,a,r,e, ,y,o,u, ,d,o,i,n,g, ,t,o,d,a,y,?</br>
 How,are,you</br>
+
+冒泡排序：
+    var arr=[10,0,100,20,60,30];
+    for(var i=0;i<arr.length-1;i++){
+        for(var j=0;j<arr.length-1-i;j++){
+            if(arr[j]>arr[j+1]){
+                var temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+            }
+        }
+    }
+    document.write(arr);
+    
+ 交换变量：
+ 方法一：
+ var a=100;
+ var b=15;
+ var temp;
+ temp=a;
+ a=b;
+ b=temp;
+ 
+ 方法二：
+ var a=100;
+ var b=15;
+ a=a+b;
+ b=a-b;
+ a=a-b;
+ 
+ 方法三(a!=b)：
+ var a=100;
+ var b=15;
+ a=a^b;
+ b=a^b;
+ a=a^b;
