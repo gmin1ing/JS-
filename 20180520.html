@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="dv">
+    <span>这是一个span标签</span>
+    <p>p 元素</p>
+    <ul id="uu">haha
+        <li>1</li>
+        <li>2</li>
+        asdf<li id="three">3</li>dfdfdf
+        <li>4</li>
+        <li>5</li>gaga
+    </ul>
+</div>
+<script src="common.js"></script>
+<script>
+//    var ulObj=my$("uu");
+//    console.log(ulObj.parentNode);
+//    console.log(ulObj.parentNode.parentNode);
+//    console.log(ulObj.parentNode.parentNode.parentNode);
+//    console.log(ulObj.parentNode.parentNode.parentNode.parentNode);
+//    console.log(ulObj.parentNode.parentNode.parentNode.parentNode.parentNode);
+//
+//    console.log(ulObj.parentElement);
+//    console.log(ulObj.parentNode.nodeType);//1
+//    console.log(ulObj.parentNode.nodeName);//DIV
+//    console.log(ulObj.parentNode.nodeValue);//null
+
+
+//      var dvObj=my$("dv");
+//    console.log(dvObj.childNodes);
+//    console.log(dvObj.children);
+//    for(var i=0;i<dvObj.childNodes.length;i++){
+//        var node=dvObj.childNodes[i];
+//        console.log(node.nodeType+"*********"+node.nodeName+"*********"+node.nodeValue);
+//    }
+//
+//    var node=dvObj.getAttributeNode("id");
+//    console.log(node.nodeType+"*********"+node.nodeName+"*********"+node.nodeValue);
+    var ulObj=my$("uu");
+    //父级节点
+    console.log(ulObj.parentNode);
+    //父级元素
+    console.log(ulObj.parentElement);
+    //子节点
+    console.log(ulObj.childNodes);
+    //子元素
+    console.log(ulObj.children);
+    //第一个子节点
+    console.log(ulObj.firstChild);
+    //第一个子元素
+    console.log(ulObj.firstElementChild);
+   //最后一个子节点
+    console.log(ulObj.lastChild);
+   //最后一个子元素
+    console.log(ulObj.lastElementChild);
+    //某个元素的前一个兄弟节点
+    console.log(my$("three").previousSibling);
+   //某个元素的前一个兄弟元素
+    console.log(my$("three").previousElementSibling);
+    //某个元素的后一个兄弟节点
+    console.log(my$("three").nextSibling);
+    //某个元素的后一个兄弟元素
+    console.log(my$("three").nextElementSibling);
+
+
+</script>
+
+</body>
+</html>

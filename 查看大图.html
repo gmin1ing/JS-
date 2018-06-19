@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="img/1.jpg" title="风景1"><img src="img/1_small.jpg" alt=""></a>
+	<a href="img/2.jpg" title="风景2"><img src="img/2_small.jpg" alt=""></a>
+	<a href="img/3.jpg" title="风景3"><img src="img/3_small.jpg" alt=""></a><br />
+	<img src="" alt="" id="big">
+	<p id="des">请选择一个图片</p>
+	<script>
+		aObjs = document.getElementsByTagName("a");
+		bigObj = document.getElementById("big");
+		pObj = document.getElementById("des");
+		for (var i=0; i<aObjs.length; i++)
+		{
+			aObjs[i].onclick = function(){
+				bigObj.src= this.href;
+				pObj.innerText=this.title;
+				return false;
+			};
+		} 
+	</script>
+	
+</body>
+</html>

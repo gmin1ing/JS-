@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="wrap">
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="j_cbAll"></th>
+                <th>菜名</th>
+                <th>饭店</th>
+            </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>红烧肉</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>红烧肉</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>红烧肉</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>红烧肉</td>
+            <td>田老师</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="common.js"></script>
+<script>
+    var ckAll=my$("j_cbAll");
+    var cks=my$("j_tb").getElementsByTagName("input");
+    ckAll.onclick=function () {
+        //console.log(this.checked);
+        for(var i=0;i<cks.length;i++){
+            cks[i].checked=this.checked;
+        }
+    };
+    //获取tbody中的多有复选框
+    for(var i=0;i<cks.length;i++){
+        cks[i].onclick=function () {
+            var flag=true;//默认选中
+            //判断是否所有的复选框都被选中了
+            for(var j=0;j<cks.length;j++){
+                if(!cks[j].checked){
+                    flag=false;
+                    break;
+                }
+            }
+            ckAll.checked=flag;
+        }
+    };
+</script>
+
+</body>
+</html>

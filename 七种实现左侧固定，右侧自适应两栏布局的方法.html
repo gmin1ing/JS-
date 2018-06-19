@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wrapper{
+			padding:15px 20px;
+			border:1px dashed #ff6c60;
+		}
+		.left{
+			width:120px;
+			border:5px solid #ddd;
+		}
+		.right{
+			margin-left:20px;
+			border:5px solid #ddd;
+		}
+
+		/*1.双inline-block方案*/
+		/**.wrapper-inline-block{
+			box-sizing:content-box;
+			font-size:0;
+		}
+		.wrapper-inline-block .left,
+		.wrapper-inline-block .right{
+			display:inline-block;
+			vertical-align:top;
+			font-size:14px;
+			box-sizing:border-box;
+		}
+		.wrapper-inline-block .right {
+			width: calc(100% - 140px);
+		}
+
+		/*2.双float方案  */
+		/*.wrapper-double-float{
+			overflow:auto;
+			box-sizing:content-box;
+		}
+		.wrapper-double-float .left,
+		.wrapper-double-float .right {
+			float: left;
+			box-sizing: border-box;
+		}
+		.wrapper-double-float .right{
+			width:calc(100% - 140px);
+		}*/
+
+		/* 3.float+margin-left */
+		/*.wrapper-float{
+			overflow:hidden; // 清除浮动
+		}
+		.wrapper-float .left{
+			float:left;
+		}
+		.wrapper-float .right{
+			margin-left:150px;
+		}*/
+		
+		/* 4.使用absolute+margin-left方法 */
+		/*.wrapper-absolute .left{
+			position:absolute;
+		}
+		.wrapper-absolute .right{
+			margin-left:150px;
+			min-height:170px;
+		}*/
+		
+		/* 5.使用float+BFC方法 */
+		/* .wrapper-float-bfc{
+			overflow:auto;
+		}
+		.wrapper-float-bfc .left{
+			float:left;
+			margin-right:20px;
+		}
+		.wrapper-float-bfc .right{
+			margin-left:0;
+			overflow:auto;
+		} */
+
+		/* 6.flex方案 
+		flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 au
+		flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大
+		flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+		flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+		 浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小
+		*/
+		/* .wrapper-flex{
+			display:flex;
+			
+		}
+		.wrapper-flex .left{
+			flex:0 0 auto;
+		
+		}
+		.wrapper-flex .right{
+			flex: 1 1 auto;
+		} */
+
+		/* 7.grid方案 */
+		.wrapper-grid{
+			display:grid;
+			 grid-template-columns:120px 1fr;
+			 align-items: start;
+		}
+		.wrapper-grid .left,
+		.wrapper-grid .right {
+			box-sizing: border-box;
+		}
+		.wrapper-grid .left {
+			grid-column: 1;
+		}
+		.wrapper-grid .right {
+			grid-column: 2;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="wrapper wrapper-inline-block wrapper-double-float wrapper-float wrapper-absolute wrapper-float-bfc wrapper-flex wrapper-grid" id="wrapper">
+  <div class="left">
+    左边固定宽度，高度不固定 </br> </br></br></br>高度有可能会很小，也可能很大。
+  </div>
+  <div class="right">
+    这里的内容可能比左侧高，也可能比左侧低。宽度需要自适应。</br>
+    基本的样式是，两个div相距20px, 左侧div宽 120px
+  </div>
+</div>
+</body>
+</html>

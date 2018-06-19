@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>开关灯</title>
+</head>
+<body>
+	<input type="button" id="btn" value="开关灯" />
+	<script>
+		var btnObj=document.getElementById("btn");
+		btnObj.onclick=function(){
+			if(document.body.style.backgroundColor != "black"){
+				document.body.style.backgroundColor="black";
+				this.value="开灯";
+			}else{
+				document.body.style.backgroundColor="";
+				this.value="关灯";
+			}
+		};
+	</script>
+</body>
+</html>

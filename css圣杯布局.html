@@ -1,0 +1,28 @@
+<!DICTYPE html>
+<html>
+	<head>
+		<meta charset='UTF-8'>
+		<title>CSS圣杯布局</title>
+		<style type="text/css">
+			.wrapper {width:980px; margin:20px auto 0; border:1px solid #000;}
+			.header {height:74px; background:blue; text-align:center; line-height:74px;}
+			.left, .right {width:200px; background:#111; height:400px;float:left;}
+			.content {width:580px; height:400px; background:green; float:left;}			
+			.footer {clear:both; height:50px; background:red;text-align:center; line-height:50px;}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="header">
+				header
+			</div>
+
+			<div class="main">
+				<div class="left">left</div>
+				<div class="content">content</div>
+				<div class="right">right</div>
+			</div>
+			<div class="footer">footer</div>
+		</div>
+	</body>
+</html>

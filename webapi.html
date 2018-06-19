@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#hid{
+			width:300px;
+			height:200px;			
+			background-color:#ff0000;
+			border:10px solid #ffff00;
+			padding:10px;
+			margin:10px;
+		}
+		.cls{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="分离代码" id="btn" />
+	<input type="button" value="图片" id="btn1" />
+	<input type="button" value="reset pic" id="btn2" />
+	<input type="button" value="set p" id="btn3" />
+	<input type="button" value="set a" id="btn4" />
+	<input type="button" value="多个p标签" id="btn5" />
+	<input type="button" value="修改文本框的值" id="btn6" />
+	<input type="text" value="" /><br />
+	<input type="text" value="" /><br />
+	<input type="text" value="" /><br />
+	<input type="text" value="" /><br />
+	<input type="text" value="" /><br />
+	<input type="button" value="显示隐藏div" id="btn7" /><br />
+	<div id="hid">
+	</div>
+	<div id="paiyi">
+		<input type="button" value="没有钱">
+		<input type="button" value="没有钱">
+		<input type="button" value="没有钱">
+		<input type="button" value="没有钱">
+		<input type="button" value="没有钱">
+		<input type="button" value="没有钱">
+	</div>
+
+	<img src="" alt="" id="im" />
+	<p id="p1"></p>
+	<a href="http://ife.baidu.com/course/detail/id/44" id="a1" onclick="alert('测试'); return false" >第十二天到第十五天，复杂页面实现</a>
+	<div id="dv">
+		<p>哈哈</p>
+		<p>哈哈</p>
+		<p>哈哈</p>
+		<p>哈哈</p>
+		<p>哈哈</p>
+	</div>
+	<img src="img/1.jpg" alt="img1" />
+	<img src="img/2.jpg" alt="img2" />
+	<img src="img/3.jpg" alt="img3" />
+
+
+	<script>
+///显示隐藏div
+		function my$(id){
+			return document.getElementById(id);
+		}
+		my$("btn7").onclick=function(){
+			if(my$("hid").className!="cls"){
+				my$("hid").className="cls";
+				this.value="显示";
+			}
+			else{
+				my$("hid").className="";
+				this.value="隐藏";
+			}
+		}
+		//getElementById 一个对象
+		document.getElementById("btn").onclick=function (){
+			alert("dfd");
+		};
+		var btnObj1 = document.getElementById("btn1");
+		var btnObj2 = document.getElementById("btn2");
+		var imObj = document.getElementById("im");
+		var btnObj3 = document.getElementById("btn3");
+		var p1 = document.getElementById("p1");
+		var btnObj4 = document.getElementById("btn4");
+		var btnObj5 = document.getElementById("btn5");
+		var a1Obj = document.getElementById("a1");
+		var btnObj6 = document.getElementById("btn6");
+		var inputs = document.getElementsByTagName("input");
+		var imgObjs = document.getElementsByTagName("img");
+		//getElementsByTagName返回一个伪数组
+		var pObjs = document.getElementById("dv").getElementsByTagName("p");
+		var btnObjs = document.getElementById("paiyi").getElementsByTagName("input");
+		
+		for (var i=0;i<btnObjs.length ; i++)
+		{
+			//把所有按钮恢复成默认值
+			btnObjs[i].onclick=function(){
+				for(j=0; j<btnObjs.length ; j++){
+					btnObjs[j].value="没有钱";
+				};
+				//修改当前按钮
+				this.value="变有钱";
+			};
+		}
+		
+		btnObj1.onclick=function(){
+			imObj.src="img/641.jpg";
+			imObj.alt="大海";
+			imObj.title="大海";
+			imObj.height="300";
+		};
+
+		btnObj2.onclick=function(){
+			imObj.src="";
+			imObj.alt="";
+		};
+
+		btnObj3.onclick=function(){
+			p1.innerText=imObj.alt;
+		};
+
+		btnObj4.onclick=function(){
+			a1Obj.href="https://www.baidu.com/";
+			a1Obj.innerText="百度一下"
+
+		};
+
+		btnObj5.onclick=function(){
+			for(var i=0;i<pObjs.length;i++){
+			pObjs[i].innerText="dhfkdfhksdfd";
+			}
+		};
+
+		btnObj6.onclick=function(){
+			for(i=0;i<inputs.length;i++){
+				if(inputs[i].type=="text"){
+					inputs[i].value="虾";
+				}
+			}
+		};
+
+		for (i=0;i<imgObjs.length ; i++)
+		{
+			if(imgObjs[i].id != im){
+				imgObjs[i].width="200";
+				imgObjs[i].height="200";
+				imgObjs[i].onclick=function(){
+					alert( this.alt );
+				};
+			}
+		}
+		
+	</script> 
+</body>
+</html>

@@ -1,0 +1,227 @@
+var person=new Object();
+person.name='Nicholas';
+person.age=29;
+console.log('person');
+
+var person={
+	name:'Nicholas',
+	age:29,
+	5:true
+};
+console.log('person');
+
+var person = {
+	"name":'Nicholas',
+	"age":29,
+	5:true
+};
+console.log('person');
+
+var person={};
+person.name='Nicholas';
+person.age=29;
+console.log('person');
+
+function displayInfo(args){
+	var output="";
+	if(typeof args.name=="string"){
+		output+="Name:"+args.name+"\n";
+	}
+	if(typeof args.age=="number"){
+		output+="Age:"+args.age+"\n";
+	}
+	alert(output);
+}
+displayInfo({
+	name:"Nicholas",
+	age:29
+});
+
+var colors=new Array();
+var colors=new Array(20);
+var names=new Array("Greg");
+var names=[];
+var colors=["red","blue","green"];
+alert(colors.length);
+
+var colors=["red","blue","green"];
+colors.length=2;
+alert(colors[2]);//undifined
+
+var colors=["red","blue","green"];
+colors.length=4;
+alert(colors[3]);//undifined
+
+
+var colors=["red","blue","green"];
+colors[colors.length]="black";
+colors[colors.length]="brown";
+
+var colors=["red","blue","green"];
+alert(colors.toString());
+alert(colors.valueOf());
+alert(colors);
+alert(colors.toLocaleString());
+alert(colors.join(","));//red,blue,green
+alert(colors.join("||"));//red||blue||green
+
+=============栈 LIFO last in first out
+var colors=new Array();
+var count=colors.push("red","green");
+alert(count);
+count=colors.push("blank");
+alert(count);
+var item=colors.pop();
+alert(item);
+alert(colors.length);
+
+var colors=["red","blue"];
+colors.push("brown");
+colors[3]="black";
+alert(colors.length);
+var item=colors.pop();
+alert(item);
+
+==============队列 FIFO first in first out
+var colors=new Array();
+var count=colors.push("red","green");
+alert(count);
+count=colors.push("black");
+alert(count);
+var item=colors.shift();
+alert(item);
+alert(colors.length);
+
+var colors=new Array();
+var count=colors.unshift("red","green");
+alert(count);
+count=colors.unshift("black");
+alert(count);
+var item=colors.pop();
+alert(item);
+alert(colors.length);
+
+===============排序
+var values=[1,2,3,4,5];
+values.reverse();
+alert(values);
+
+var values=[1,2,3,4,5];
+values.sort();
+alert(values);
+
+function compare(value1,value2){
+	if(value1<value2){
+		return -1;
+	}
+	if(value1>value2){
+		return 1;
+	}else{
+		return 0;
+	}
+}
+var values=[0,1,5,10,15];
+values.sort(compare);
+alert(values);
+
+function compare(value1,value2){
+	return value2-value1;
+}
+var values=[0,1,5,10,15];
+values.sort(compare);
+alert(values);
+
+============concat
+var colors = ["red","green","blue"];
+var colors2 = colors.concat("yellow",["black","brown"]);
+alert(colors);
+alert(colors2);
+
+==============slice
+var colors = ["red","green","blue","yellow","purple"];
+var colors2=colors.slice(1);
+var colors3=colors.slice(1,4);
+var colors4=colors.slice(2,-1);
+alert(colors2);
+alert(colors3);
+alert(colors4);
+
+===================splice
+var colors=["red","green","blue"];
+var removed=colors.splice(0,1);
+alert(colors);
+alert(removed);
+
+removed=colors.splice(1,0,"yellow","orange");
+alert(colors);
+alert(removed);
+
+removed=colors.splice(1,1,"red","purple");
+alert(colors);
+alert(removed);
+
+===========indexOf & lastIndexOf
+var numbers = [1,2,3,4,5,4,3,2,1];
+alert(numbers.indexOf(4));
+alert(numbers.lastIndexOf(4));
+
+alert(numbers.indexOf(4,4));
+alert(numbers.lastIndexOf(4,4));
+
+var person={name:"Nicholas"};
+var people=[{name:"Nicholas"}];
+var morePeople=[person];
+alert(people.indexOf(person));
+alert(morePeople.indexOf(person));
+
+==========
+==========迭代 every(),filter(),forEach(),map(),some()
+
+var number=[1,2,3,4,5,4,3,2,1];
+var everyResult=number.every(function(item, index, array){
+	return (item>2);
+});
+alert(everyResult);
+
+var everyResult=number.some(function(item, index, array){
+	return (item>2);
+});
+alert(everyResult);
+
+var number=[1,2,3,4,5,4,3,2,1];
+var everyResult=number.filter(function(item, index, array){
+	return (item>2);
+});
+alert(everyResult);
+
+var number=[1,2,3,4,5,4,3,2,1];
+var everyResult=number.map(function(item, index, array){
+	return item*2;
+});
+alert(everyResult);
+
+var number=[1,2,3,4,5,4,3,2,1];
+var everyResult=number.forEach(function(item, index, array){
+	xxxxxxxxxxxxxxxxxxxxxx
+});
+
+==========
+==========归并：reduce(),reduceRight()
+var values={1,2,3,4,5};
+var sum=values.reduce(function(prev,cur,index,array){
+	return prec+cur;
+});
+alert(sum);
+
+==========Date
+var now = new Date();
+var somDate=new Date(Date.parse("May 25, 2004"));
+var somDate=new Date("May 25, 2004");
+var y2k=new Date(Date.UTC(2000,0));
+var allFives=new Date(Date.UTC(2005,4,5,17,55,55));
+alert(y2k);
+alert(allFives);
+
+var start=Date.now();
+doSomething;
+var stop=+Date.now(), result=stop-start;

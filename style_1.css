@@ -1,0 +1,50 @@
+body {
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+    font-size:16px;
+    color:#333;
+	margin:10px;
+	padding:10px;
+	border:1px solid #efefef;
+}
+
+h1{
+ font-size:26px;
+ margin-bottom:20px;
+}
+
+h2{
+	font-size:18px;
+	margin-bottom:15px;
+	
+}
+
+h3{
+	font-size:16px;
+	margin-bottom:15px;
+	margin-right:5px;
+}
+ul {
+    list-style: none;
+	margin:0;
+	padding:0;
+	font-weight:normal;
+}
+
+.content{
+	margin:0;
+	padding:0;
+}
+
+.rowlist{
+	float:left;
+	margin-right:20px;
+}
+
+
+li>h3{
+	display:inline;
+}
+
+.clear {
+  clear: both;
+  }

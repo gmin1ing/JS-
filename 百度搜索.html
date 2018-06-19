@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	#box{
+		width:450px;
+		margin:200px auto;
+	}
+	#txt{
+		width:350px;
+	}
+	#pop{
+		width:350px;
+		border:1px solid red;
+	}
+	#pop ul{
+		margin:10px;
+	}
+	p{
+		margin:2px 0 0 2px;
+		padding:0;
+		cursor:pointer;
+		font-size:10px;
+		
+	}
+  </style>
+ </head>
+ <body>
+ <div id="box">
+	<input type="text" id="txt" />
+	<input type="button" value="搜索" id="btn" />
+</div>
+	<script src="common.js"></script>
+	<script>
+		var keyWords=["小敏","小敏花","小梦","小萌","小心","小心大龙","大龙","大于","大雨","大鱼","前进","重说","传说"]
+		//获取文本框注册键盘抬起事件
+		my$("txt").onkeyup=function(){
+			//每一次键盘抬起判断页面有无div
+			if(my$("dv")){
+				my$("box").removeChild(my$("dv"));
+			}
+
+			var text=this.value;
+			var tempArr=[];
+			for(var i=0;i<keyWords.length;i++){
+				if(keyWords[i].indexOf(text)==0){
+					tempArr.push(keyWords[i]);
+				}
+			}
+			//临时数组有数据
+			//console.log(tempArr);
+			//遍历临时数组，创建div(文本框的内容是空的，临时数组也是空的)
+			if(this.value.length==0||tempArr.length==0){
+				if(my$("dv")){
+					my$("box").removeChild(my$("dv"));
+				}
+				return;
+			}
+			//创建div，把div加入到box的div中
+			var dvObj=document.createElement("div");
+			my$("box").appendChild(dvObj);
+			dvObj.id="dv";
+			dvObj.style.width="350px";
+			dvObj.style.border="1px solid green";
+			//循环遍历p标签
+			for(var i=0;i<tempArr.length;i++){
+				//创建p
+				var pObj=document.createElement("p");
+				dvObj.appendChild(pObj);
+				setInnerText(pObj,tempArr[i]);
+				pObj.onmouseover=function(){
+					this.style.backgroundColor="yellow";
+				};
+				pObj.onmouseout=function(){
+					this.style.backgroundColor="";
+				};
+			}
+		};
+	</script>
+ </body>
+</html>

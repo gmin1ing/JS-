@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片跟着鼠标飞</title>
+	<style>
+	    *{
+	    	margin: 0;
+	    	padding: 0;
+	    }
+		img{
+		position:absolute;
+		}
+		body{
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<img src="img/timg.jpeg" alt="" id="m" />
+	<script>
+		//document.onmouseover=function(e){
+//可视区的X值
+        //e=window.event||e;
+                ////可视区域的横坐标
+        //my$("m").style.left=e.clientX+"px";
+            	//可视区域的纵坐标
+		//my$("m").style.top=e.clientY+"px";
+                //pageX,pageY IE不可用,不支持e 也不支持pageX,pageY
+       //         my$("m").style.left=e.pageX+"px";
+         //       my$("m").style.top=e.pageY+"px";
+			
+		//};
+		function getScroll(){
+			return{
+				left:window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft||0,
+				top:window.pageXOffset||document.body.scrollTop||document.documentElement.scrollTop||0
+			}
+		}
+
+		//可是区域的横坐标+向左卷曲出去的横坐标
+		document.onmouseover=function(){
+		my$("m").style.left=window.event.clientX + getScroll().left + "px";
+		my$("m").style.top=window.event.clientY + getScroll().top + "px";
+
+		function my$(id){
+			return document.getElementById(id);
+		}
+	    }     
+        
+	</script>
+
+</body>
+</html>

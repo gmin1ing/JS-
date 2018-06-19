@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		input{
+			margin-top:20px;
+		}
+		div{
+			width:200px;
+			height:100px;
+			background-color:pink;
+			position:absolute;
+			left:20px;
+		}
+		#btn1{
+			z-index:10;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		#btn2{
+			z-index:10;
+			position:absolute;
+			left:100px;
+			top:0;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="不使用" id="btn1" />
+	<input type="button" value="使用回调函数" id="btn2" />
+	<div id="dv"></div>
+
+	<script>
+		my$("btn1").onclick=function(){	
+			animate(my$("dv"),{"width":100,"opacity":0.2});
+		};
+		my$("btn2").onclick=function(){	
+			animate(my$("dv"),{"width":400,"height":200,"left":200,"top":300,"opacity":0.2},function(){
+				animate(my$("dv"),{"width":200,"height":100,"left":20,"top":0,"opacity":1,"zIndex":1});
+			});
+		};
+		function my$(id){
+			return document.getElementById(id);
+		}
+		function getStyle(element, attr){
+			return window.getComputedStyle?window.getComputedStyle(element,null)[attr]:element.currentStyle[attr]||0;
+		}
+
+		function animate(element,json,fn){
+					clearInterval(element.timeId);
+					element.timeId=setInterval(function(){
+						var flag=true;
+						for (var attr in json)
+						{	
+							if(attr=="opacity"){
+								var current=getStyle(element, attr)*100;	
+								var target=json[attr]*100;
+								var step=(target-current)/10;
+								step=step>0?Math.ceil(step):Math.floor(step)
+								current+=step;
+								element.style[attr]=current/100;
+							}else if(attr=="zIndex"){6
+								element.style[attr]=json[attr];
+							}else{
+								//获取元素当前位置的值
+								var current=parseInt(getStyle(element, attr));	
+								var target=json[attr];
+								var step=(target-current)/10;
+								step=step>0?Math.ceil(step):Math.floor(step)
+								current+=step;
+								element.style[attr]=current+"px";	
+							}
+							if(current!=target){
+									flag=false;
+							}
+					}
+					if(flag){
+						clearInterval(element.timeId);
+						//所有属性均到达目标位置，才能使用这个函数，前提是用户传入了函数
+						if(fn){
+							fn();
+						}
+					}
+				},20);		
+			}
+
+	</script>
+
+</body>
+</html>

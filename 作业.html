@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			margin:0;
+			padding:0;
+		}
+		.header{
+			background-color:#33cc00;
+			height:150px;
+		}
+		.header .marker{
+			padding-top:120px;
+			padding-right:10px;
+		}
+		.header a{
+			font-weight:normal;
+			font-size:12px;
+			text-decoration:none;
+			background-color:#ffffcc;
+			border:1px solid #336600;
+			margin:2px;
+			padding:2px;
+			width:8px;
+			display:block;
+			float:right;
+			height:15px;
+		}
+		.header a:hover{
+			font-size:13px;
+			border:1px solid #336600;
+			height:18px;
+			width:8px;
+			background-color:#ccff00;
+			display:block;
+			position:relative;
+			bottom:3px;
+			margin:2px;
+			padding:2px;
+			
+		}
+		.bar{
+			height:29px;
+			margin-top:20px;
+			padding-left:200px;
+			border-bottom:1px solid #efefef;
+
+		}
+		.bar a{
+			text-decoration:none;
+			font-size:18px;
+			display:block;
+			border:1px solid #efefef;
+			border-radius:8px 8px 0 0;
+			float:left;
+			margin:0;
+			padding:2px 8px;
+			background-color:#efefef;
+		}
+		.bar a:hover{
+			background-color:#ffffff;
+			border-bottom:1px solid #fff;
+			color:#33cc00
+		}
+		.container{
+			padding:0 200px;
+		}
+		.first div{
+			border:1px solid #efefef;
+			float:left;
+			margin:5px 5px 0 0;
+			height:200px;
+		}
+		.first .content1{
+			width:200px;
+			padding:5px;
+		}
+		.first .content2{
+			width:calc(100% - 401px);
+			padding:5px;
+			
+		}
+		.first .content3{
+			width:150px;
+			padding:5px;
+		}
+		.second div{
+			border:1px solid #efefef;
+			float:left;
+			margin:5px 5px 0 0;
+			height:200px;
+			padding:5px;
+			width: calc(25% - 17px);   
+		}
+		
+		.last div{
+			border:1px solid #efefef;
+			float:left;
+			margin:5px 5px 0 0;
+			height:200px;
+			padding:5px;
+			width:calc(33.3% - 17px);
+		}
+		.footer{
+			background-color:#afafaf;
+			height:80px;
+			color:#efefef;
+			text-align:center;
+			padding-top:10px;
+		}
+		.clear{
+			clear:both;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="marker">
+			<a href="">4</a><a href="">3</a><a href="">2</a><a href="">1</a>
+		</div>
+	</div>
+	<div class="bar">
+			<a href="">Home</a>
+			<a href="">Profile</a>
+			<a href="">About</a>
+	</div>
+	<div class="container">
+		<div class="first">
+			<div class="content1">This is Content 1</div>
+			<div class="content2">MaybeContent2</div>
+			<div class="content3">Content3</div>
+		</div>
+		<div class="second">
+			<div class="content4 clear">Content4</div>
+			<div class="content5">Content5</div>
+			<div class="content6">Content6</div>
+			<div class="content7">Content7</div>
+		</div>
+		<div class="last">
+			<div class="content8 clear">Content8</div>
+			<div class="content9">Content9</div>
+			<div class="content10">Content10</div>
+		</div>
+	</div>
+	<div class="footer clear">@2018 ife.baidu.com</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+         *{
+         	margin: 0;
+         	padding: 0;
+         }
+         body{
+         	height: 2000px;
+         }
+         img{
+         	position: absolute;
+         }
+	</style>
+</head>
+<body>
+	<img src="img/timg.jpeg" alt="" id="m" />
+	<script>
+	    var evt={
+	    	getEvent:function(){
+	    		return window.event||evt;
+	    	},
+	    	getClientX:function(){
+	    		return this.getEvent(evt).clientX;
+	    	},
+	    	getClientY:function(){
+	    		return this.getEvent(evt).clientY;
+	    	},
+	    	
+	      
+	    };
+	    document.onmouseover=function(e){
+	    	my$("m").style.left=evt.getClientX+"px";
+	    	my$("m").style.top=evt.getClientY+"px";
+	    };
+	    function my$(id){
+			return document.getElementById(id);
+		    }  
+
+	</script>
+</body>
+</html>

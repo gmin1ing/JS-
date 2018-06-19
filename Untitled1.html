@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>乘法口诀表</title>
+	
+</head>
+<body>
+	<script>
+		function fun(){
+			for (var r=1;r<=9;r++){
+				for(var i=1,sum="";i<=r;i++){
+						sum+=i+"x"+r+"="+i*r+"&nbsp";
+						(i*r<10)&&(sum+="&nbsp&nbsp");
+				}
+				document.write(sum);
+				document.write("<br />");
+			}
+		}
+		function printTriangle(l){
+			for(var j=1;j<=l;j++){
+				for(var i=1,str="";i<=j;str+="*",i++);
+				console.log(str);
+			}
+		}
+		function printTriangle2(l){
+			for (var r=1; r<=l; r++){
+				//for (var i=0,str="";i<l;i++){
+				//	str+=i<(l-r)?" ":"*";
+				//}
+				for(i=1,str=""; i<=l-r;str+=" ",i++);
+				for(i=1; i<=r;str+="*",i++)
+				console.log(str);
+			}
+		}
+		function printTriangle3(l){
+			 for (r=1; r<=l; r++){
+				 for (i=1, str=""; i<=l-r; str+=" ",i++);
+				 for (i=1; i<=(2*r-1); str+="*",i++);
+				 console.log(str);}
+			
+		}
+		
+	</script>
+	<button onclick="printTriangle(prompt('输入行数'))">请输入一个数字（正三角）</button>
+	<button onclick="printTriangle2(prompt('输入行数'))">请输入一个数字(反三角)</button>
+	<button onclick="printTriangle3(prompt('输入行数'))">请输入一个数字(等腰三角)</button>
+</body>
+</html>

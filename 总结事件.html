@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+    <style>
+	#dv1{
+		width:300px;
+		height:200px;
+		background-color:red;
+	}
+	#dv2{
+		width:250px;
+		height:150px;
+		background-color:green;
+	}
+	#dv3{
+		width:200px;
+		height:100px;
+		background-color:blue;
+	}
+  </style>
+
+ </head>
+ <body>
+	<div id="dv1">
+		<div id="dv2">
+			<div id="dv3"></div>
+		</div>
+	 </div>
+	 <script src="common.js"></script>
+	 <script>
+		var objs=[my$("dv3"),my$("dv2"),my$("dv1")];
+		objs.forEach(function (ele,index,arr){
+			ele.addEventListener("click",function(e){
+				console.log(this.id+"========="+e.eventPhase);
+			},false);
+		});
+	 </script>
+ </body>
+</html>

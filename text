@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+ 
+<body>
+<h1>kfjks</h1>
+<p>kjshfhsf</p>
+<p>kfjkjf</p>
+<script type="text/javascript">
+alert(document.body.childNodes.length);
+alert(document.getElementByTagName("body")[0].childNodes.length);
+</script>
+</body>
+
+</html>

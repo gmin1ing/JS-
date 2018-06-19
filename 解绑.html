@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<input type="button" value="解绑" id="btn"/>
+<input type="button" value="解绑第一个事件" id="btn2"/>
+<div id="dv"></div>
+<script src="common.js"></script>
+<script>
+    //第一钟u
+//    my$("btn").onclick=function () {
+//        console.log("dfdfs");
+//    };
+//    my$("btn2").onclick=function () {
+//        my$("btn").onclick=null;
+//    };
+
+    //第二种
+    function f1() {
+        var pObj=document.createElement("p");
+        pObj.innerHTML="<p>第一个</p>";
+        my$("dv").appendChild(pObj);
+    }
+    function f2() {
+        var pObj=document.createElement("p");
+        pObj.innerHTML="<p>第二个</p>";
+        my$("dv").appendChild(pObj);
+    }
+//    my$("btn").addEventListener("click",f1,false);
+//    my$("btn").addEventListener("click",f2,false);
+//    my$("btn2").onclick=function () {
+//        my$("btn").removeEventListener("click",f1,false);
+//    };
+    //第三种
+//    my$("btn").attachEvent("onclick",f1);
+//    my$("btn").attachEvent("onclick",f2);
+//    my$("btn2").onclick=function () {
+//        my$("btn").detachEvent("onclick",f1);
+//    };
+
+    addEventListener(my$("btn"),"click",f1);
+    addEventListener(my$("btn"),"click",f2);
+    my$("btn2").onclick=function () {
+        removeEventListener(my$("btn"),"click",f1);
+    }
+
+</script>
+
+</body>
+</html>

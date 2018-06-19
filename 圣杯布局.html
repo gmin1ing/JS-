@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圣杯布局</title>
+	<style>
+		body{
+			min-width:630px;
+		}
+		#header{
+				
+			background-color: green;
+		}
+		#container{
+			padding-left:200px;
+			padding-right:190px;
+		}
+		#container .columns{
+			float:left;
+			position: relative;
+		}
+		#center{
+			width:100%;
+			padding:10px 20px;
+			background-color:#ff00cc;
+		}
+		#left{
+			width:180px; 
+			padding:0 10px;
+			background-color: blue;
+			margin-left:-100%;
+			right:240px;
+		
+		}
+		#right{
+			width:130px; 
+			background-color: red;
+			padding:0 10px;
+			margin-right:-190px;
+		}
+		#footer{
+			clear:both;
+			background-color: gray;
+		}
+
+		* html #left {
+		  left: 150px; 
+		}
+		
+
+	</style>
+</head>
+<body>
+  <div id="header">1dfdfddfdf</div>
+  <div id="container">
+	  <div id="center" class="columns">2dfdfd<br />2dfdfd</div>
+	  <div id="left" class="columns">2dfdfd<br />2dfdfd<br />2dfdfd</div>
+	  <div id="right" class="columns">2dfdfd<br />2dfdfd<br />2dfdfd</div>
+  </div>
+  <div id="footer">1</div>
+</body>
+</html>

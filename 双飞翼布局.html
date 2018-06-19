@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>双飞翼布局介绍</title>
+	<style>
+		#head{
+			background-color:#cc99cc;
+		}
+		.main{
+			float:left;
+			width:100%;
+			background-color:#ffff00;
+		}
+		.sub{
+			float:left;
+			width:190px;
+			margin-left:-100%;
+			position:relative;
+			left:-190px;
+			background-color:#ff0000;
+		}
+		.extra{
+			float:left;
+			width:230px;
+			margin-left:-230px;
+			position:relative;
+			right:-230px;
+			background-color:#ff00ff;
+		}
+		#foot{
+			background-color:#6666ff;
+			clear:both;
+		}
+		#container{
+			padding:0 230px 0 190px;
+		}
+	</style>
+</head>
+<body>
+	<div id="page">    
+      <div id="head">1</div>    
+         <div id="container">        
+              <div class="main">2</div>        
+              <div class="sub">3</div>        
+              <div class="extra">4</div>    
+         </div>   
+      <div id="foot">5</div>
+	 </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 200px;
+            width:150px;
+            border: 2px dashed pink;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="创建p" id="btn">
+<div id="dv"></div>
+<script src="common.js"></script>
+<script>
+    my$("btn").onclick=function () {
+        var pobj=document.createElement("p");
+        setInnerText(pobj,"这是一个p");
+        my$("dv").appendChild(pobj);
+    }
+    function setInnerText(element,text) {
+        if(typeof element.textContent=="undefined"){
+            return element.innerText=text;
+        }else{
+            return element.textContent=text;
+        }
+    }
+</script>
+
+</body>
+</html>

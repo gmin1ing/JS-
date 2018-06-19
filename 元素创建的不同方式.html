@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height:300px;
+            width: 200px;
+            background-color: #7ec8ea;
+        }
+
+    </style>
+</head>
+<body>
+<input type="button" value="一个p" id="btn">
+<div id="dv"></div>
+<script src="common.js"></script>
+<script>
+    var names=["gao","min","yi","xue","teng","long","meng"]
+    my$("btn").onclick=function () {
+        str="<ul style='list-style-type: none; cursor: pointer'>"
+        for (var i=0;i<names.length;i++){
+            str+="<li>"+names[i]+"</li>"
+        }
+        str+="</ul>"
+        my$("dv").innerHTML=str;
+
+        var list=my$("dv").getElementsByTagName("li");
+        for(var i=0;i<list.length;i++){
+            list[i].onmouseover=function () {
+                this.style.backgroundColor="yellow";
+            }
+            list[i].onmouseout=function () {
+                this.style.backgroundColor="";
+            }
+        };
+   };
+
+//    document.write("<p>这是一个p</p>");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+        
+        .photo {
+            width: 400px;
+            height: 200px;
+            margin: 50px;
+            position: relative;
+        }
+        
+        .main {
+            width: 400px;
+            height: 200px;
+            position: relative;
+        }
+        
+        .main1 li {
+            width: 400px;
+            height: 200px;
+            list-style-type: none;
+        }
+        
+        .pto {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .pto1 {
+            width: 400px;
+            height: 200px;
+            background: red;
+        }
+        
+        .pto2 {
+            width: 400px;
+            height: 200px;
+            background: pink;
+            display: none;
+        }
+        
+        .pto3 {
+            width: 400px;
+            height: 200px;
+            background: blue;
+            display: none;
+        }
+        
+        .btn {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+        }
+        
+        .btn1 {
+            left: 0;
+            top: 85px;
+            background: url("img/left.png");
+        }
+        
+        .btn2 {
+            right: 0;
+            top: 85px;
+            background: url("img/right.png");
+        }
+        
+        .circleBtn {
+            position: absolute;
+            top: 170px;
+            right: 182px;
+            width: 42px;
+            height: 10px;
+            zoom: 1;
+        }
+        
+        .circleBtn span {
+            width: 10px;
+            height: 10px;
+            margin: 0 2px;
+            float: left;
+            cursor: pointer;
+            background: url("img/cir.png");
+        }
+        
+        .circleBtn .light {
+            background: url("img/oncir.gif");
+        }
+    </style>
+    <script type="text/javascript" src="jiaodiantujs.js">
+    </script>
+
+</head>
+
+<body>
+    <div class="photo" id="main">
+        <div class="main">
+            <ul class="main1" id="amain">
+                <li class="pto pto1">one</li>
+                <li class="pto pto2">two</li>
+                <li class="pto pto3">three</li>
+            </ul>
+        </div>
+
+        <span class="btn btn1" id="btn1"></span>
+        <span class="btn btn2" id="btn2"></span>
+        <!--
+        <div class="circleBtn" id="circleBtn">
+            <span class="light"></span>
+            <span></span>
+            <span></span>
+        </div>
+        -->
+    </div>
+    <script>
+    function $(id) {
+    return typeof id === "string" ? document.getElementById(id) : id;
+}
+window.onload = function() {
+    //pto变量为所展示的图片集和
+    var pto = $("amain").getElementsByTagName("li");
+    //btnleft和right为两个按钮
+    var btnleft = $("btn1");
+    var btnright = $("btn2");
+    //div变量为设置停止图片显示所需
+    var div = $("main");
+    //idBtn为当前图片的id
+    var idBtn = 0;
+    //setInterval函数所需的函数名timer
+    var timer = null;
+
+    //自定义一个函数用于按钮变换
+    function changeBtn(one, two) {
+        one.style.background = two;
+    }
+    //鼠标移动至左按钮时，套用自定义函数
+    btnleft.onmouseenter = function() {
+        //this表示当前btnleft的背景
+        changeBtn(this, "url(img/onleft.gif) no-repeat");
+    }
+    //鼠标离开至左按钮时，套用自定义函数
+    btnleft.onmouseout = function() {
+        //this同理
+        changeBtn(this, "url(img/left.png) no-repeat");
+    }
+    //鼠标移动至右按钮时，套用自定义函数
+    btnright.onmouseenter = function() {
+        changeBtn(this, "url(img/onright.gif) no-repeat");
+    }
+    //同理
+    btnright.onmouseout = function() {
+        changeBtn(this, "url(img/right.png) no-repeat");
+    }
+
+    //clearPto函数表示隐藏图片
+    function clearPto() {
+        for (var i = 0; i < pto.length; i++) {
+            pto[i].style.display = "none";
+
+        }
+    }
+    //showPto函数表示显示当前图片
+    function showPto(y) {
+        //局部变量y，为当前鼠标点击的id
+        for (var i = 0; i < pto.length; i++) {
+            //console.log(y);
+            //当点击的id和图片id，也就是y相等时候，显示图片
+            if (i == y) {
+                pto[i].style.display = "block";
+            }
+
+        }
+    }
+
+    //鼠标左击绑定函数
+    btnleft.onclick = function() {
+        //当idBtn为0 ，左击则，下一张为2，所以把长度2 赋值给idBtn
+        if (idBtn == 0) {
+            idBtn = pto.length - 1;
+        } else {
+            //同理，当不为0时，所显示的为小于当前所以要--
+            idBtn--;
+        }
+        //套用函数
+        clearPto();
+        //if语句结束，把idBtn代入函数中
+        showPto(idBtn);
+    }
+
+    btnright.onclick = function() {
+        //当idBtn小于长度，则左右为下一张，所以idBtn++
+        if (idBtn < pto.length - 1) {
+            idBtn++;
+        } else {
+            //超出长度，则下一张为0，所以把0赋值
+            idBtn = 0;
+        }
+        clearPto();
+        showPto(idBtn);
+    }
+    //判断语句，设置当前只有一个timer函数执行
+    if (timer) {
+        clearInterval(timer);
+        timer = null;
+    }
+    //鼠标离开div，则执行函数
+    div.onmouseout = start;
+    //鼠标移到div，则停止自动轮播
+    div.onmouseover = stop;
+    start();
+
+    //setInterval函数详情可以自行百度，不多解释
+    function start() {
+        timer = setInterval(function() {
+            btnright.onclick();
+        }, 2000);
+    }
+
+    function stop() {
+        clearInterval(timer);
+    }
+}
+    
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	#dv1{
+		width:300px;
+		height:200px;
+		background-color:red;
+	}
+	#dv2{
+		width:250px;
+		height:150px;
+		background-color:green;
+	}
+	#dv3{
+		width:200px;
+		height:100px;
+		background-color:blue;
+	}
+  </style>
+ </head>
+ <body>
+	 <div id="dv1">
+		<div id="dv2">
+			<div id="dv3"></div>
+		</div>
+	 </div>
+	 <script src="common.js"></script>
+	 <script>
+		my$("dv1").onclick=function(){
+			console.log(this.id);
+		};
+		my$("dv2").onclick=function(){
+			console.log(this.id);
+			window.event.cancelBubble=true;
+		};
+		my$("dv3").onclick=function(){
+			console.log(this.id);
+			//console.log(arguments.length);
+			//arguments[0]:事件处理参数对象
+			//console.log(arguments[0]);
+			window.event.cancelBubble=true;
+		};
+	 </script>
+ </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+	<style type="text/css">
+           div{
+           	width:200px;
+           	height: 300px;
+           }
+	</style>
+</head>
+<body>
+<!-- 
+     element类型：
+
+ -->
+ <div id="myDiv" class="bd" title="Body Text" lang="en" dir="ltr" my_special_attribute="hello!"></div>
+ <script>
+         
+          var div=document.getElementById("myDiv");
+         //element:标签 
+         // alert(div.tagName);//DIV
+         // alert(div.nodeType);//1
+         // alert(div.nodeName);//DIV
+         // alert(div.nodeValue);//null
+
+         //HTML元素
+         // alert(div.id);//myDiv
+         // alert(div.className);//bd-------注意是calssName不是class
+         // alert(div.title);//Body Text
+         // alert(div.lang);//en
+         // alert(div.dir);//ltr
+
+         //取得特性
+         // console.log(div.getAttribute("id"));//myDiv
+         // console.log(div.getAttribute("class"));//bd
+         // console.log(div.getAttribute("title"));//Body Text
+         // console.log(div.getAttribute("lang"));//en
+         // console.log(div.getAttribute("dir"));//ltr
+         // console.log(div.getAttribute("my_special_attribute"));//hello!
+
+         //设置属性
+         //div.setAttribute("id","someOtherId");
+         
+         // console.log(div.attributes);
+         // console.log(div.attributes["id"].nodeValue);//myDiv
+         // console.log(div.attributes.getNamedItem("id").nodeValue);//myDiv
+         
+         // div.attributes["id"].nodeValue="someOtherId";
+         // console.log(div.attributes.getNamedItem("id").nodeValue);//someOtherId
+         // var oldValue=div.attributes.removeNamedItem("id");
+         // console.log(div.attributes.getNamedItem("class").nodeValue);
+         
+         // function outputAttributes(element){
+         // 	var pairs=new Array(),
+         // 	attrName,
+         // 	attrValue,
+         // 	i,
+         // 	len;
+
+         // 	for (var i = 0, len=element.attributes.length; i <len; i++) {
+         // 		attrName=element.attributes[i].nodeName;
+         // 		attrValue=element.attributes[i].nodeValue;
+         // 		if (element.attributes[i].specified) {
+         // 			pairs.push(attrName+"=\""+attrValue+"\"");
+         // 		};
+         		
+         // 	};
+         //    return pairs.join(" ");
+
+         // }
+         // console.log(outputAttributes(div));
+
+         // var div=document.createElement("div");
+         // div.id="myNewDiv";
+         // div.className="box";
+         // document.body.appendChild(div);
+
+         var div=document.createElement("<div id=\"myNewDiv1\" class=\"box\"></div>")
+
+         
+      
+
+
+
+
+
+
+ </script>
+</body>
+</html>
