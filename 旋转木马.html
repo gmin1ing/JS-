@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		#wrap{
+			width:935px;
+			height:400px;
+			margin-left:150px;
+			margin-top:20px;	
+		}
+
+		#slide{
+			width:935px;
+			height:400px;
+			position: relative;
+		}
+		
+		li{
+			display:block;
+			width:100px;
+			position: absolute;
+			left:0px;	
+			top:0;
+			overflow:hidden;
+		}
+
+		#arrow{
+			opacity:0;
+		}
+        #arrow span{
+			width:30px;
+			height:80px;
+			background:gray;
+			opacity: 0.5;
+			font-size:30px;
+			padding-top:30px;
+			color:#fff;
+			
+		}
+		#left{
+			position: absolute;
+			bottom:175px;
+			left:10px;
+			z-index: 100;
+			
+		}
+        
+        #right{
+			position: absolute;
+			bottom:175px;
+			right:10px;	
+			z-index: 100;
+		}
+		
+	</style>
+			<script>
+		var config=[
+			{   width:300,
+				top:0,
+				left:0,
+				opacity:0.2,
+				zIndex:2
+			},//0
+			{	width:400,
+				top:50,
+				left:50,
+				opacity:0.8,
+				zIndex:3
+			},//1
+			{	width:500,
+				top:100,
+				left:200,
+				opacity:1,
+				zIndex:4
+			},//2
+			{	width:400,
+				top:50,
+				left:475,
+				opacity:0.8,
+				zIndex:3
+			},//3
+			{	width:300,
+				top:0,
+				left:635,
+				opacity:0.2,
+				zIndex:2
+			}//4
+		]
+
+		
+		window.onload=function(){
+			var flag=true;//假设所有动画执行完毕
+			//散开图片
+			var list=my$("slide").getElementsByTagName("li");
+			function assign(){
+				for( var i=0;i<list.length;i++){
+					animate(list[i],config[i],function(){
+						flag=true;});
+				}
+			}
+			assign();
+
+			//右边按钮
+			my$("right").onclick=function(){
+				if (flag) {
+					flag=false;
+					config.push(config.shift());
+				    assign();//重新分配
+
+				};
+				
+			};
+			//左边按钮
+			my$("left").onclick=function(){
+				if (flag) {
+					flag=false;
+					config.unshift(config.pop());
+					
+				};
+				
+				
+			};
+			//鼠标进入
+			my$("wrap").onmouseover=function(){
+				animate(my$("arrow"),{"opacity":1});
+			};
+			//鼠标离开
+			my$("wrap").onmouseout=function(){
+				animate(my$("arrow"),{"opacity":0});
+			};
+			
+
+
+		function my$(id){
+			return document.getElementById(id);
+		}
+		function getStyle(element, attr){
+			return window.getComputedStyle?window.getComputedStyle(element,null)[attr]:element.currentStyle[attr]||0;
+		}
+		function animate(element,json,fn){
+					clearInterval(element.timeId);
+					element.timeId=setInterval(function(){
+						var flag=true;
+						for (var attr in json)
+						{	
+							if(attr=="opacity"){
+								var current=getStyle(element, attr)*100;	
+								var target=json[attr]*100;
+								var step=(target-current)/10;
+								step=step>0?Math.ceil(step):Math.floor(step)
+								current+=step;
+								element.style[attr]=current/100;
+							}else if(attr=="zIndex"){6
+								element.style[attr]=json[attr];
+							}else{
+								//获取元素当前位置的值
+								var current=parseInt(getStyle(element, attr));	
+								var target=json[attr];
+								var step=(target-current)/10;
+								step=step>0?Math.ceil(step):Math.floor(step)
+								current+=step;
+								element.style[attr]=current+"px";	
+							}
+							if(current!=target){
+									flag=false;
+							}
+					}
+					if(flag){
+						clearInterval(element.timeId);
+						//所有属性均到达目标位置，才能使用这个函数，前提是用户传入了函数
+						if(fn){
+							fn();
+						}
+					}
+				},20);		
+		}
+			
+		}
+		
+		
+	</script>
+</head>
+<body>
+	<div class="wrap" id="wrap">
+		<div class="slide" id="slide">
+			<ul>
+				<li><a href="#"><img src="img/001.jpg" alt=""></a></li>
+				<li><a href="#"><img src="img/002.jpg" alt=""></a></li>
+				<li><a href="#"><img src="img/003.jpg" alt=""></a></li>
+				<li><a href="#"><img src="img/004.jpg" alt=""></a></li>
+				<li><a href="#"><img src="img/005.jpg" alt=""></a></li>
+			</ul>
+			<div class="arrow" id="arrow">
+				<a href="javascript:;" class="prev" id="arrLeft"><span id="left">&lt;</span></a>
+				<a href="javascript:;" class="next" id="arrRight"><span id="right">&gt;</span></a>
+			</div>
+		</div>
+	</div>
+
+	
+</body>
+</html>
